@@ -1,6 +1,3 @@
-let foods = new Set();
-foods.add('gelato');
-foods.add('tortas');
-foods.add('gelato');
+const foods = require('./foods'); // no js extension needed
 
 console.log(foods);
