@@ -12,6 +12,16 @@ module.exports = {
         filename: '[name].js',
     },
     mode: 'development',
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                },
+            },
+        ],
+    },
     plugins: [
         new webpack.ProvidePlugin({
             jQuery: 'jquery',
