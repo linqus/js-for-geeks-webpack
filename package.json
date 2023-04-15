@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "git@github.com:knpuniversity/javascript.git",
   "author": "Ryan Weaver <ryan@thatsquality.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
