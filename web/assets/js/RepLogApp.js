@@ -2,8 +2,9 @@
 
 
 const Helper = require('./RepLogHelper');
+const $ = require('jquery');
 
-(function(window, $, Routing, swal) {
+(function(window, Routing, swal) {
 
 
     let HelperInstances = new WeakMap();
@@ -217,4 +218,4 @@ const Helper = require('./RepLogHelper');
 `;
 
     window.RepLogApp = RepLogApp;
-})(window, jQuery, Routing, swal);
+})(window, Routing, swal);
