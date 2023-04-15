@@ -65,7 +65,7 @@ const Helper = require('./RepLogHelper');
             const $link = $(e.currentTarget);
 
             swal({
-                title: 'Delete this log?',
+                title: 'Delete this log????',
                 text: 'What? Did you not actually lift this?',
                 showCancelButton: true,
                 showLoaderOnConfirm: true,
