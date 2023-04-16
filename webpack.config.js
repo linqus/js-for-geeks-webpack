@@ -38,7 +38,6 @@ module.exports = {
         filename: '[name].js',
         publicPath: '/build/',
     },
-    mode: 'development',
     module: {
         rules: [
             {
@@ -105,6 +104,10 @@ module.exports = {
             // copies to {output}/static
             {from: './assets/static', to: 'static'},
         ]),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: 2,
+        })
     ],
     devtool: 'inline-source-map',
 }
