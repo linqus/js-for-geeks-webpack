@@ -40,6 +40,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
+                            name: '[name]-[hash:6].[ext]',
                             esModule: false,
                         },
                     },
@@ -51,6 +52,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
+                            name: '[name]-[hash:6].[ext]',
                             esModule: false,
                         },
                     },
