@@ -10,6 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname,'web','build'),
         filename: '[name].js',
+        publicPath: '/build/',
     },
     mode: 'development',
     module: {
@@ -31,6 +32,17 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
+                ],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            esModule: false,
+                        },
+                    },
                 ],
             },
         ],
