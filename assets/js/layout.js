@@ -1,11 +1,11 @@
 'use strict';
 
-var $ = require('jquery');
-require('bootstrap-sass');
+import $ from 'jquery';
+import 'bootstrap-sass';
 
-require('../css/main.scss');
+import '../css/main.scss';
 
-require('babel-polyfill');
+import 'babel-polyfill';
 
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
