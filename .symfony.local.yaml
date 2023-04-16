@@ -1,0 +1,3 @@
+http:
+  allow_http: true
+  daemon: true
