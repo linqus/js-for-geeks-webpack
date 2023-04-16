@@ -28,7 +28,7 @@ const resolveUrlLoader = {
     }
 };
 
-const useDevServer = true;
+const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
 
 module.exports = {
