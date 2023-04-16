@@ -45,6 +45,17 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.(woff|woff2|ttf|eot|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            esModule: false,
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [
