@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPLugin = require('extract-text-webpack-plugin');
 
 const styleLoader = {
     loader: 'style-loader',
@@ -57,19 +58,22 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    styleLoader,
-                    cssLoader,
-                ],
+                use: ExtractTextPLugin.extract({
+                    use: [cssLoader],
+                    fallback: styleLoader,
+                }),
+                
             },
             {
                 test: /\.scss$/,
-                use: [
-                    styleLoader,
-                    cssLoader,
-                    resolveUrlLoader,
-                    sassLoader,
-                ],
+                use: ExtractTextPLugin.extract({
+                    use: [
+                        cssLoader,
+                        resolveUrlLoader,
+                        sassLoader,
+                    ],
+                    fallback: styleLoader,
+                }),
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
@@ -113,7 +117,9 @@ module.exports = {
                 'manifest'
             ],
             minChunks: Infinity,
-        })
+        }),
+        new ExtractTextPLugin('[name].css'),
+
     ],
     devtool: 'inline-source-map',
     devServer: {
