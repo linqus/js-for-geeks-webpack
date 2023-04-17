@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPLugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackChunkHash = require('webpack-chunk-hash');
 
 const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
@@ -44,7 +45,7 @@ const webpackConfig = {
     },
     output: {
         path: path.resolve(__dirname,'web','build'),
-        filename: useVersioning ? '[name].[hash:6].js' : '[name].js',
+        filename: useVersioning ? '[name].[chunkhash:6].js' : '[name].js',
         publicPath: publicPath,
     },
     module: {
@@ -130,6 +131,7 @@ const webpackConfig = {
             writeToFileEmit: true,
             basePath: 'build/',
         }),
+        new WebpackChunkHash(),
 
     ],
     devtool: useSourceMaps ? 'inline-source-map' : false,
