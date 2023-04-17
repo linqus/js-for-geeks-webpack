@@ -64,7 +64,6 @@ const webpackConfig = {
                 use: ExtractTextPLugin.extract({
                     use: [cssLoader],
                     fallback: styleLoader,
-                    minimize: isProduction,
                 }),
                 
             },
