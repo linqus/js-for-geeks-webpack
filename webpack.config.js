@@ -31,7 +31,7 @@ const resolveUrlLoader = {
 const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
 
-module.exports = {
+const webpackConfig = {
     entry: {
         rep_log: './assets/js/rep_log.js',
         login: './assets/js/login.js',
@@ -128,4 +128,12 @@ module.exports = {
             'Access-Control-Allow-Origin': '*',
         },
     },
+};
+
+console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'production') {
+    webpackConfig.plugins.push(
+        new webpack.optimize.UglifyJsPlugin()
+    );
 }
+module.exports = webpackConfig;
