@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPLugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackChunkHash = require('webpack-chunk-hash');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
@@ -134,6 +135,8 @@ const webpackConfig = {
         new WebpackChunkHash(),
 
         isProduction ? new webpack.HashedModuleIdsPlugin() : new webpack.NamedModulesPlugin(),
+
+        new CleanWebpackPlugin(),
 
     ],
     devtool: useSourceMaps ? 'inline-source-map' : false,
