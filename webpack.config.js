@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPLugin = require('extract-text-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const useDevServer = false;
 const publicPath = useDevServer ? 'http://localhost:8080/build/' : '/build/';
@@ -123,7 +124,12 @@ const webpackConfig = {
             minChunks: Infinity,
         }),
         new ExtractTextPLugin(
-            useVersioning ? '[name].[contenthash:6].css':'[name].css'),
+            useVersioning ? '[name].[contenthash:6].css':'[name].css'
+        ),
+        new ManifestPlugin({
+            writeToFileEmit: true,
+            basePath: 'build/',
+        }),
 
     ],
     devtool: useSourceMaps ? 'inline-source-map' : false,
